@@ -544,6 +544,40 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .absolute {
   position: absolute;
 }
@@ -608,28 +642,28 @@ video {
   width: 25%;
 }
 
-.w-\[50\%\] {
-  width: 50%;
-}
-
-.w-\[80\%\] {
-  width: 80%;
-}
-
-.w-full {
-  width: 100%;
-}
-
 .w-\[40\%\] {
   width: 40%;
+}
+
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .w-\[65\%\] {
   width: 65%;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
 .w-\[90\%\] {
   width: 90%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-\[800px\] {
@@ -705,16 +739,6 @@ video {
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
 }
 
-.bg-\[\#6900e8\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(105 0 232 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#8220eb\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(130 32 235 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#007f39\] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 127 57 / var(--tw-bg-opacity));
@@ -723,6 +747,16 @@ video {
 .bg-\[\#6196A6\] {
   --tw-bg-opacity: 1;
   background-color: rgb(97 150 166 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#6900e8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(105 0 232 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#8220eb\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(130 32 235 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#9b9797\] {
@@ -755,12 +789,12 @@ video {
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .p-10 {
   padding: 2.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .pl-1 {
@@ -775,21 +809,16 @@ video {
   text-align: center;
 }
 
+.text-\[10px\] {
+  font-size: 10px;
+}
+
 .text-\[13px\] {
   font-size: 13px;
 }
 
 .text-\[15px\] {
   font-size: 15px;
-}
-
-.text-\[10px\] {
-  font-size: 10px;
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-red-600 {
@@ -800,6 +829,11 @@ video {
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-2xl {
