@@ -233,3 +233,66 @@ function closeModalEyes() {
   modal_eyes.classList.add("hidden");
   modal_eyes.classList.remove("flex");
 }
+
+
+
+function deleteData(event) {
+    const parentDivDelete = event.target.closest(".parentTr");
+    const foundDelete = data.find((item) => item.id == parentDivDelete.id);
+    // console.log(foundDelete);
+    // console.log(parentDivDelete.children[0]);
+    // console.log(parentDivDelete.id);
+    const data_delete = data.findIndex(
+      (item) => item.id === foundDelete.id
+    );
+    data.splice(data_delete, 1);
+    console.log(data);
+
+    // if (data != []) {
+    //   localStorage.clear();
+
+    localStorage.setItem("data", JSON.stringify(data));
+    renderContacts(JSON.parse(localStorage.getItem("data")));
+  }
+
+  function editData(event) {
+    modal_edit.classList.add("flex");
+    modal_edit.classList.remove("hidden");
+    const parentDivEdit = event.target.closest(".parentTr");
+
+    const foundEdit = data.find((item) => item.id == parentDivEdit.id);
+    // console.log(foundEdit)
+    let idd = foundEdit.id
+    inputModalDeadline.value = foundEdit.deadline
+    inputModalTaske.value = foundEdit.taskeName
+    inputModalDescription.value = foundEdit.description
+    selectModalPriority.value = foundEdit.priority
+    selectModalStatus.value = foundEdit.status
+    selectPriority.text = foundEdit.priority
+    // console.log(selectPriority.value)
+
+       btnSave.addEventListener("click" , saveEdit)
+  function saveEdit (event){
+    modal_edit.classList.add("hidden");
+    modal_edit.classList.remove("flex");
+    const dataEdit_index = data.findIndex(
+      (item) => item.id === foundEdit.id
+    );
+
+  let  newItem = {
+      taskeName :   inputModalTaske.value ,
+      priority :selectModalPriority.value ,
+      status :selectModalStatus.value,
+      action : "",
+      id : idd ,
+      deadline : inputModalDeadline.value,
+      description :  inputModalDescription.value,
+    }
+    data.splice(dataEdit_index, 1 , newItem);
+    localStorage.setItem("data", JSON.stringify(data));
+    renderContacts(JSON.parse(localStorage.getItem("data")));
+  
+  }
+
+  }
+
