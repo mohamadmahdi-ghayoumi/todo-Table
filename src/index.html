@@ -60,5 +60,183 @@
   
   
 
+    <!-- modal-add -->
+    <div class="absolute bg-blue-700">
+    </div>
+<div
+ id="modal-add"
+ class="hidden p-10 bg-[#6196A6] shadow-2xl flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-5 rounded-[5px] w-[90%] max-w-[800px]"
+>
+ <div class="flex gap-2 justify-between">
+   <span>your Task name :</span
+   ><input
+     id="inputTaske"
+     type="text"
+     class="outline-none rounded-[5px] pl-2 w-[65%]"
+     placeholder="enter"
+   />
+ </div>
+ <span class="text-red-600 text-[10px] hidden" id="errorTaske"
+   >Enter the message</span
+ >
+ <div class="flex gap-2 justify-between">
+   <span>Priority :</span>
+   <select
+     name=""
+     id="selectPriority"
+     class="rounded-[5px] outline-none pl-2 w-[65%]"
+   >
+   <option value="disabled" class="bg-[#9b9797] text-slate-500" disabled selected>Select a Priority</option>
+     <option value="Low" class="bg-[#9b9797]">Low</option>
+     <option value="Medium" class="bg-[#9b9797]">Medium</option>
+     <option value="High" class="bg-[#9b9797]">High</option>
+   </select>
+   <!-- <input
+     id="inputPriority"
+     type="text"
+     class="outline-none rounded-[5px] pl-2"
+     placeholder="enter"
+   /> -->
+ </div>
+
+  <span class="text-red-600 text-[10px] hidden" id="errorPriority" -->
+   >Enter the message</span
+ > 
+ 
+
+ <div class="flex gap-2 justify-between">
+   <span>Status :</span>
+   <select
+     name=""
+     id="selectStatus"
+     class="rounded-[5px] pl-2 outline-none w-[65%]"
+   >
+   <option value="disabled" class="bg-[#9b9797] text-slate-500" disabled selected>Select a Status</option>
+
+     <option value="Todo" class="bg-[#9b9797]">Todo</option>
+     <option value="Doing" class="bg-[#9b9797]">Doing</option>
+     <option value="Done" class="bg-[#9b9797]">Done</option>
+   </select>
+   <!-- <input
+     id="inputStatus"
+     type="text"
+     class="outline-none rounded-[5px] pl-2"
+     placeholder="enter"
+   /> -->
+ </div>
+ <span class="text-red-600 text-[10px] hidden" id="errorStatus"
+   >Enter the message</span
+ >
+
+ <div class="flex gap-2 justify-between">
+   <span>Deadline :</span
+   >
+   <!-- <input
+     id="inputDeadline"
+     type="text"
+     class="outline-none rounded-[5px] pl-2 w-[65%]"
+    
+   /> -->
+   <input type="date" id="inputDeadline" class="outline-none rounded-[5px] pl-2 w-[65%]" value="2024/12/05"  placeholder="enter" name="trip-start"  />
+
+ </div>
+ <span class="text-red-600 text-[10px] hidden" id="errorDeadline"
+   >Enter the message</span
+ >
+
+ <div class="flex gap-2 justify-between">
+   <span>Description :</span
+   ><input
+     id="inputDescription"
+     type="text"
+     class="outline-none rounded-[5px] pl-2 w-[65%]"
+     placeholder="enter"
+   />
+ </div>
+ <span class="text-red-600 text-[10px] hidden" id="errorDescription"
+   >Enter the message</span
+ >
+
+ <button class="bg-[#A4CE95] w-[40%] m-auto mt-3" id="btnSubmit">
+   Submit
+ </button>
+</div>
+<!-- modal-eyes -->
+<div
+ id="modal-eyes"
+ class="hidden p-10 bg-[#6196A6] shadow-2xl flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-5 rounded-[5px] w-[80%]"
+>
+ <div class="flex gap-2 justify-between">
+   <span>your Task name :</span>
+   <span class="" id="spanModalTaske"></span>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Priority :</span>
+   <span class="" id="spanModalPriority"></span>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Status :</span>
+   <span class="" id="spanModalStatus"></span>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Deadline :</span>
+   <span class="" id="spanModalDeadline"></span>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Description :</span>
+   <span class="" id="spanModalDescription"></span>
+ </div>
+ <button class="bg-[#A4CE95] w-[40%] m-auto mt-3" id="btnClose">
+   Close
+ </button>
+</div>
+
+<!-- modal-edit -->
+<div
+ id="modal-edit"
+ class="hidden p-10 bg-[#6196A6] shadow-2xl flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-5 rounded-[5px] w-[80%]"
+>
+ <div class="flex gap-2 justify-between">
+   <span>your Task name :</span>
+   <input class="outline-none rounded-[5px] pl-2 w-[65%]" id="inputModalTaske"></input>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Priority :</span>
+   <select
+     name=""
+     id="selectModalPriority"
+     class="rounded-[5px] outline-none pl-2 w-[65%]"
+   >
+     <option value="Low" class="bg-[#ebebeb]">Low</option>
+     <option value="Medium" class="bg-[#ffbe00]">Medium</option>
+     <option value="High" class="bg-[#f41b35]">High</option>
+   </select>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Status :</span>
+   <select
+     name=""
+     id="selectModalStatus"
+     class="rounded-[5px] pl-2 outline-none w-[65%]"
+   >
+     <option value="Todo" class="bg-[#f41b35]">Todo</option>
+     <option value="Doing" class="bg-[#ffbe00]">Doing</option>
+     <option value="Done" class="bg-[#007f39]">Done</option>
+   </select>
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Deadline :</span>
+   <!-- <input class="outline-none rounded-[5px] pl-2 w-[65%]" id="inputModalDeadline"></input> -->
+   <input type="date" id="inputModalDeadline" class="outline-none rounded-[5px] pl-2 w-[65%]" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+
+ </div>
+ <div class="flex gap-2 justify-between">
+   <span>Description :</span>
+   <input class="outline-none rounded-[5px] pl-2 w-[65%]" id="inputModalDescription"></input>
+ </div>
+ <button class="bg-[#A4CE95] w-[40%] m-auto mt-3" id="btnSave">
+   Save
+ </button>
+</div>
 </body>
 </html>
