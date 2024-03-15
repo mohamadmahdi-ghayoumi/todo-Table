@@ -118,3 +118,10 @@ function renderContacts(contacts) {
     });
   }
 
+
+  const localStorageData = localStorage.getItem("data");
+  const data = JSON.parse(
+
+    localStorage.getItem("data") ? localStorage.getItem("data") : "[]"
+  );
+  renderContacts(data);
