@@ -61,11 +61,12 @@
   
 
     <!-- modal-add -->
-    <div class="absolute bg-blue-700">
+    <div id="overlayModal" class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-full h-full bg-gray-500 bg-opacity-70 hidden">
     </div>
+
 <div
  id="modal-add"
- class="hidden p-10 bg-[#6196A6] shadow-2xl flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-5 rounded-[5px] w-[90%] max-w-[800px]"
+ class="hidden p-10 bg-[#6196A6] shadow-2xl flex-col absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-5 rounded-[5px] w-[90%] max-w-[800px]"
 >
  <div class="flex gap-2 justify-between">
    <span>your Task name :</span
@@ -91,12 +92,6 @@
      <option value="Medium" class="bg-[#9b9797]">Medium</option>
      <option value="High" class="bg-[#9b9797]">High</option>
    </select>
-   <!-- <input
-     id="inputPriority"
-     type="text"
-     class="outline-none rounded-[5px] pl-2"
-     placeholder="enter"
-   /> -->
  </div>
 
   <span class="text-red-600 text-[10px] hidden" id="errorPriority" -->
@@ -131,13 +126,8 @@
  <div class="flex gap-2 justify-between">
    <span>Deadline :</span
    >
-   <!-- <input
-     id="inputDeadline"
-     type="text"
-     class="outline-none rounded-[5px] pl-2 w-[65%]"
-    
-   /> -->
-   <input type="date" id="inputDeadline" class="outline-none rounded-[5px] pl-2 w-[65%]" value="2024/12/05"  placeholder="enter" name="trip-start"  />
+
+   <input type="date" id="inputDeadline" class="outline-none rounded-[5px] pl-2 w-[65%]" value="2024-07-22"   name="trip-start"   placeholder="Select a date"/>
 
  </div>
  <span class="text-red-600 text-[10px] hidden" id="errorDeadline"

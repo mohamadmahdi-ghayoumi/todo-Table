@@ -10,6 +10,7 @@ const inputDescription = document.getElementById("inputDescription");
 const selectPriority = document.getElementById("selectPriority");
 const selectStatus = document.getElementById("selectStatus");
 const btnSubmit = document.getElementById("btnSubmit");
+const overlayModal = document.getElementById("overlayModal");
 
 //spanEror
 const errorTaske = document.getElementById("errorTaske");
@@ -115,8 +116,8 @@ function renderContacts(contacts) {
     tbody.append(tr);
 
     image_Eyes.addEventListener("click", modalEyes);
-    // image_Delete.addEventListener("click", deleteData);
-    // image_Edit.addEventListener("click", editData);
+    image_Delete.addEventListener("click", deleteData);
+    image_Edit.addEventListener("click", editData);
   });
 }
 
@@ -125,6 +126,7 @@ icon_add.addEventListener("click", adddata);
 function adddata() {
   modal_add.classList.add("flex");
   modal_add.classList.remove("hidden");
+  overlayModal.classList.remove("hidden");
 }
 
 btnSubmit.addEventListener("click", saveData);
@@ -139,6 +141,7 @@ function saveData() {
   ) {
     modal_add.classList.remove("flex");
     modal_add.classList.add("hidden");
+    overlayModal.classList.add("hidden");
 
     let myTask = {
       taskeName: inputTaske.value,
@@ -207,10 +210,22 @@ function saveData() {
     }
   }
 }
+overlayModal.addEventListener("click", CloseModal);
+function CloseModal() {
+  modal_add.classList.remove("flex");
+  modal_add.classList.add("hidden");
+  overlayModal.classList.add("hidden");
+  modal_eyes.classList.remove("flex");
+  modal_eyes.classList.add("hidden");
+  modal_edit.classList.add("hidden");
+  modal_edit.classList.remove("flex");
+}
 
 function modalEyes(event) {
   modal_eyes.classList.add("flex");
   modal_eyes.classList.remove("hidden");
+  overlayModal.classList.remove("hidden");
+
   const parentDiv = event.target.closest(".parentTr");
   console.log(data);
   console.log(parentDiv);
@@ -232,67 +247,62 @@ btnClose.addEventListener("click", closeModalEyes);
 function closeModalEyes() {
   modal_eyes.classList.add("hidden");
   modal_eyes.classList.remove("flex");
+  overlayModal.classList.add("hidden");
 }
 
-
-
 function deleteData(event) {
-    const parentDivDelete = event.target.closest(".parentTr");
-    const foundDelete = data.find((item) => item.id == parentDivDelete.id);
-    // console.log(foundDelete);
-    // console.log(parentDivDelete.children[0]);
-    // console.log(parentDivDelete.id);
-    const data_delete = data.findIndex(
-      (item) => item.id === foundDelete.id
-    );
-    data.splice(data_delete, 1);
-    console.log(data);
+  const parentDivDelete = event.target.closest(".parentTr");
+  const foundDelete = data.find((item) => item.id == parentDivDelete.id);
+  // console.log(foundDelete);
+  // console.log(parentDivDelete.children[0]);
+  // console.log(parentDivDelete.id);
+  const data_delete = data.findIndex((item) => item.id === foundDelete.id);
+  data.splice(data_delete, 1);
+  console.log(data);
 
-    // if (data != []) {
-    //   localStorage.clear();
+  // if (data != []) {
+  //   localStorage.clear();
 
-    localStorage.setItem("data", JSON.stringify(data));
-    renderContacts(JSON.parse(localStorage.getItem("data")));
-  }
+  localStorage.setItem("data", JSON.stringify(data));
+  renderContacts(JSON.parse(localStorage.getItem("data")));
+}
 
-  function editData(event) {
-    modal_edit.classList.add("flex");
-    modal_edit.classList.remove("hidden");
-    const parentDivEdit = event.target.closest(".parentTr");
+function editData(event) {
+  modal_edit.classList.add("flex");
+  modal_edit.classList.remove("hidden");
+  overlayModal.classList.remove("hidden");
 
-    const foundEdit = data.find((item) => item.id == parentDivEdit.id);
-    // console.log(foundEdit)
-    let idd = foundEdit.id
-    inputModalDeadline.value = foundEdit.deadline
-    inputModalTaske.value = foundEdit.taskeName
-    inputModalDescription.value = foundEdit.description
-    selectModalPriority.value = foundEdit.priority
-    selectModalStatus.value = foundEdit.status
-    selectPriority.text = foundEdit.priority
-    // console.log(selectPriority.value)
+  const parentDivEdit = event.target.closest(".parentTr");
 
-       btnSave.addEventListener("click" , saveEdit)
-  function saveEdit (event){
+  const foundEdit = data.find((item) => item.id == parentDivEdit.id);
+  letidTask = foundEdit.id;
+  inputModalDeadline.value = foundEdit.deadline;
+  inputModalTaske.value = foundEdit.taskeName;
+  inputModalDescription.value = foundEdit.description;
+  selectModalPriority.value = foundEdit.priority;
+  selectModalStatus.value = foundEdit.status;
+  selectPriority.text = foundEdit.priority;
+
+  btnSave.addEventListener("click", saveEdit);
+
+  function saveEdit(event) {
     modal_edit.classList.add("hidden");
     modal_edit.classList.remove("flex");
-    const dataEdit_index = data.findIndex(
-      (item) => item.id === foundEdit.id
-    );
+    overlayModal.classList.add("hidden");
 
-  let  newItem = {
-      taskeName :   inputModalTaske.value ,
-      priority :selectModalPriority.value ,
-      status :selectModalStatus.value,
-      action : "",
-      id : idd ,
-      deadline : inputModalDeadline.value,
-      description :  inputModalDescription.value,
-    }
-    data.splice(dataEdit_index, 1 , newItem);
+    const dataEdit_index = data.findIndex((item) => item.id === foundEdit.id);
+
+    let newItem = {
+      taskeName: inputModalTaske.value,
+      priority: selectModalPriority.value,
+      status: selectModalStatus.value,
+      action: "",
+      id: idTask,
+      deadline: inputModalDeadline.value,
+      description: inputModalDescription.value,
+    };
+    data.splice(dataEdit_index, 1, newItem);
     localStorage.setItem("data", JSON.stringify(data));
     renderContacts(JSON.parse(localStorage.getItem("data")));
-  
   }
-
-  }
-
+}
