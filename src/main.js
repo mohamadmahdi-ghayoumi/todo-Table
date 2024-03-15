@@ -36,9 +36,6 @@ const selectModalPriority = document.getElementById("selectModalPriority");
 const selectModalStatus = document.getElementById("selectModalStatus");
 const btnSave = document.getElementById("btnSave");
 
-
-
-
 const localStorageData = localStorage.getItem("data");
 const data = JSON.parse(
   localStorage.getItem("data") ? localStorage.getItem("data") : "[]"
@@ -118,8 +115,8 @@ function renderContacts(contacts) {
     tbody.append(tr);
 
     image_Eyes.addEventListener("click", modalEyes);
-    image_Delete.addEventListener("click", deleteData);
-    image_Edit.addEventListener("click", editData);
+    // image_Delete.addEventListener("click", deleteData);
+    // image_Edit.addEventListener("click", editData);
   });
 }
 
@@ -209,4 +206,30 @@ function saveData() {
       errorDescription.classList.remove("flex");
     }
   }
+}
+
+function modalEyes(event) {
+  modal_eyes.classList.add("flex");
+  modal_eyes.classList.remove("hidden");
+  const parentDiv = event.target.closest(".parentTr");
+  console.log(data);
+  console.log(parentDiv);
+
+  foundid = data.find(
+    (item) => item.taskeName === parentDiv.children[0].innerText
+  );
+  console.log(foundid);
+
+  spanModalTaske.innerText = foundid.taskeName;
+  spanModalPriority.innerText = foundid.priority;
+  spanModalStatus.innerText = foundid.status;
+  spanModalDeadline.innerText = foundid.deadline;
+  spanModalDescription.innerText = foundid.description;
+}
+
+btnClose.addEventListener("click", closeModalEyes);
+
+function closeModalEyes() {
+  modal_eyes.classList.add("hidden");
+  modal_eyes.classList.remove("flex");
 }
